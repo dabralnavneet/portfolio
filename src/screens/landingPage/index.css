@@ -1,0 +1,51 @@
+.App-logo {
+  height: 60vh;
+  max-width: 100vw;
+  animation: logo-spin 4s infinite;
+}
+.landing-screen {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  min-height: 80vh;
+}
+
+.ex-large {
+  font-size: calc(26px + (60 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.ex-heading {
+  font-size: calc(20px + (50 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.ex-medium {
+  font-size: calc(14px + (30 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .landing-screen {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100vw;
+    min-height: 90vh;
+  }
+}

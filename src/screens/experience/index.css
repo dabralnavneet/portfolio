@@ -1,0 +1,113 @@
+.experience {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5%;
+  min-height: 50vh;
+}
+
+.company {
+  padding: 10px;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 50%;
+  border-color: var(--primary-color);
+  color: #302083;
+  background-color: var(--bg-skill);
+  border: solid 1px;
+  -webkit-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+  -moz-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+  box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+}
+
+.company::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  height: 100px;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  border-color: var(--bg-skill);
+  color: var(--secondary-color);
+  border: solid 1px;
+}
+
+.work-container {
+  display: flex;
+  position: relative;
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.work-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+}
+
+.work-item span {
+  display: flex;
+  display: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.work-item span h5 {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.work-done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: #302083;
+  -webkit-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+  -moz-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+  box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+  background-color: var(--bg-skill);
+  padding: 10px;
+  margin: 10px;
+  transition: opacity 1s;
+  font-size: 12px;
+}
+
+.jio1 {
+  position: relative;
+  top: 60px;
+}
+
+.jio2 {
+  position: relative;
+  top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .experience {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .jio2 {
+    position: relative;
+    top: 150px;
+  }
+
+  .company::before {
+    height: 230px;
+  }
+}
