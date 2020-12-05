@@ -1,15 +1,16 @@
 import React from "react";
-import Lplogo from "../../assets/lp_image.svg";
 import "./index.css";
+import svgMain from "../../assets/apps.svg";
 
 const LandingPage = () => {
   return (
     <div className="landing-screen">
-      <img src={Lplogo} className="App-logo" alt="logo" />
-      <div>
-        <h1 className="ex-large">Navneet Dabral</h1>
-        <h2 className="ex-medium">Front end engineer</h2>
-      </div>
+      <div className="itsme">Navneet Dabral</div>
+      <img src={svgMain} alt="logo" className='logo-image' />
+      <h2 className="logo-name">
+        Front End <br />
+        UI/UX Engineer
+      </h2>
     </div>
   );
 };

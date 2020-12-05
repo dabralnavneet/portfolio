@@ -3,14 +3,32 @@
   max-width: 100vw;
   animation: logo-spin 4s infinite;
 }
-.landing-screen {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+.landing-screen h2 {
+  font-size: calc(70px + (60 - 14) * ((100vw - 200px) / (1600 - 300)));
+}
+
+.logo-name {
+  position: absolute;
+  bottom: 0;
+  color: var(--font-color);
+  -webkit-text-fill-color: var(--bg-color);
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: var(--font-color);
+  text-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+}
+
+.logo-image {
+  position: absolute;
+  height: 100vh;
   width: 100vw;
-  min-height: 80vh;
+  opacity: 0.3;
+}
+
+.itsme {
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  border-bottom: solid 3px;
 }
 
 .ex-large {
@@ -39,13 +57,6 @@
 
 @media only screen and (max-width: 600px) {
   .landing-screen {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 10px;
-    width: 100vw;
-    min-height: 90vh;
+    font-size: calc(60px + (60 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
 }

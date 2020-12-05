@@ -1,33 +1,59 @@
 import React from "react";
 import "./App.css";
 import { LandingPage } from "./screens/landingPage";
-import { Skills } from "./screens/skills";
+import { Blog } from "./screens/blog";
 import { Work } from "./screens/experience";
-import { Footer } from "./screens/footer";
+import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+const stylesnav = {
+  textDecoration: "none",
+  color: "#9a97f3",
+  fontWeight: 600,
+};
+
+const activeStyle = {
+  opacity: 0,
+};
 
 const App = () => {
-  const switchTheme = (e) => {
-    if (e.target.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-  };
-
   return (
     <div className="App">
-      <header>
-        <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onClick={switchTheme} />
-            <div class="slider round"></div>
-          </label>
+      <Router>
+        <header>
+          <div className="navigation">
+            <nav>
+              <li>
+                <Link style={stylesnav} activeStyle={activeStyle} to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link style={stylesnav} activeStyle={activeStyle} to="/work">
+                  Work
+                </Link>
+              </li>
+              <li>
+                <Link style={stylesnav} activeStyle={activeStyle} to="/blog">
+                  Blog
+                </Link>
+              </li>
+            </nav>
+          </div>
+        </header>
+        <div className="main-container">
+          <Switch>
+            <Route path="/work">
+              <Work />
+            </Route>
+            <Route path="/blog">
+              <Blog />
+            </Route>
+            <Route path="/">
+              <LandingPage />
+            </Route>
+          </Switch>
         </div>
-      </header>
-      <LandingPage />
-      <Skills />
-      <Work />
-      <Footer />
+      </Router>
     </div>
   );
 };

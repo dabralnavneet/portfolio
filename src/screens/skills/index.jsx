@@ -1,31 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./index.css";
-const skills = [
-  {
-    name: "Html5",
-  },
-  {
-    name: "CSS",
-  },
-  {
-    name: "JavaScript",
-  },
-  {
-    name: "typescript",
-  },
-  {
-    name: "react",
-  },
-  {
-    name: "webpack",
-  },
-  {
-    name: "react-native",
-  },
-  {
-    name: "mobx-state-tree",
-  },
-];
+import { skills } from "../utils";
 
 const Skills = () => {
   const target = useRef(null);
@@ -46,13 +21,11 @@ const Skills = () => {
 
   return (
     <div className="skills" ref={target}>
-      <div className="section-name">
-        <h1 className="ex-heading">Skills</h1>
-      </div>
       <div className="main-container">
         {skills.map((item) => {
+          const className = "logo-container " + item.name;
           return (
-            <div className="logo-container" key={item.name}>
+            <div className={className} key={item.name}>
               {item.name}
             </div>
           );
