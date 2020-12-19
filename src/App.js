@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { LandingPage } from "./screens/landingPage";
 import { Blog } from "./screens/blog";
 import { Work } from "./screens/experience";
 import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useWindowSize } from "./screens/utils/hooks/useWindowSize";
 
 const stylesnav = {
   textDecoration: "none",
@@ -16,12 +17,23 @@ const activeStyle = {
 };
 
 const App = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const { _height, width } = useWindowSize();
+  const toggleHeader = () => {
+    if (width < 601) {
+      setShowMenu(!showMenu);
+    }
+  };
   return (
     <div className="App">
+      <button className="menu-button" onClick={toggleHeader}>
+        &#9776;
+      </button>
       <Router>
-        <header>
+        <header style={showMenu ? { top: "50%" } : {}}>
           <div className="navigation">
-            <nav>
+            <nav onClick={toggleHeader}>
               <li>
                 <Link style={stylesnav} activeStyle={activeStyle} to="/">
                   Home

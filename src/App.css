@@ -1,6 +1,10 @@
 .App {
   display: flex;
   flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
 }
 
 .App .main-container {
@@ -114,20 +118,53 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.menu-button {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .App .main-container {
     margin-left: 0;
     padding: 10px;
+    position: relative;
   }
   header {
     display: flex;
+    flex: none;
     flex-direction: column;
-    position: fixed;
-    top: 0;
-    flex: 1;
-    border-right: solid 2px;
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    bottom: 0px;
     height: 100vh;
-    padding: 10px;
-    justify-content: space-between;
+    /* margin-bottom: -100vh; */
+    max-height: 50%;
+    border: solid 0px;
+    justify-content: center;
+    transition: all 1s ease-in-out;
+    z-index: 10;
+    background-color: var(--bg-color);
+    -webkit-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
+    -moz-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
+    box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
+  }
+  .App .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    bottom: 16px;
+    right: 16px;
+    outline: none;
+    border: none;
+    background-color: var(--font-color);
+    color: var(--bg-color);
+    z-index: 10;
+  }
+  .show-menu {
+    top: 80%;
   }
 }

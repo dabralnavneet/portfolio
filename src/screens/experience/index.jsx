@@ -10,20 +10,19 @@ const Work = () => {
       <div className="work-container">
         <div className="work-item">
           <div className="work-done jio1">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo"
+            worked on latest technologoies like mobx-state-tree ,React native
+            web, typescript and storybook. developed crossplatform apps and
+            used across android, ios and web
           </div>
           <span>
             <h3 className="company">Jio</h3>
-            <h5> 2019 - today</h5>
+            <h5> 2019 - {new Date().getFullYear()}</h5>
           </span>
           <div className="work-done jio2">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo"
+            Delivered high quality product on time, In dynamic work culture.
+            used yarn workspaces for maintaining and code sharing between
+            projects, worked on azure for building CI/CD pipelines for different
+            testing environments
           </div>
         </div>
       </div>

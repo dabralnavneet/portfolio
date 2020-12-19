@@ -26,7 +26,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  height: 100px;
+  height: 250px;
   left: 50%;
   top: 100%;
   transform: translate(-50%, 0);
@@ -77,10 +77,12 @@
   -moz-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
   box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
   background-color: var(--bg-skill);
-  padding: 10px;
+  padding: 24px;
   margin: 10px;
   transition: opacity 1s;
+  line-height: 1.4em;
   font-size: 12px;
+  width: 50%;
 }
 
 .jio1 {
@@ -100,11 +102,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 10px;
+    padding: 0px;
   }
   .jio2 {
     position: relative;
     top: 150px;
+  }
+
+  .work-done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: #302083;
+    -webkit-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+    -moz-box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+    box-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
+    background-color: var(--bg-skill);
+    padding: 16px;
+    margin-right: 10px;
+    transition: opacity 1s;
+    line-height: 1.4em;
+    font-size: 12px;
+    width: 50%;
   }
 
   .company::before {

@@ -7,9 +7,9 @@ const Tabs = (props) => {
   return <div className="tabs">{props.name}</div>;
 };
 
-const Post = (props) => {
-  return <div>{props.name}</div>;
-};
+// const Post = (props) => {
+//   return <div>{props.name}</div>;
+// };
 
 const Blog = () => {
   const a = categories.map((item) => <Tabs name={item} isSelected="false" />);
