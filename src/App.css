@@ -163,6 +163,7 @@ input:checked + .slider:before {
     background-color: var(--font-color);
     color: var(--bg-color);
     z-index: 10;
+    font-size: medium;
   }
   .show-menu {
     top: 80%;
