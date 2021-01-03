@@ -3,17 +3,28 @@ import "./App.css";
 import { LandingPage } from "./screens/landingPage";
 import { Blog } from "./screens/blog";
 import { Work } from "./screens/experience";
-import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  NavLink as Link,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import { useWindowSize } from "./screens/utils/hooks/useWindowSize";
 
 const stylesnav = {
+  display: "flex",
   textDecoration: "none",
-  color: "#9a97f3",
+  color: "#e1e1ff",
   fontWeight: 600,
+  // width: "100px",
+  width: "100%",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "32px 0px",
 };
 
 const activeStyle = {
-  opacity: 0,
+  background: "rgba(225, 225, 255, 0.1)",
 };
 
 const App = () => {
@@ -27,28 +38,30 @@ const App = () => {
   };
   return (
     <div className="App">
-      <button className="menu-button" onClick={toggleHeader}>
-        &#9776;
-      </button>
+      {showMenu ? (
+        <button className="menu-button size-large" onClick={toggleHeader}>
+          &#10005;
+        </button>
+      ) : (
+        <button className="menu-button" onClick={toggleHeader}>
+          &#9776;
+        </button>
+      )}
       <Router>
         <header style={showMenu ? { top: "50%" } : {}}>
           <div className="navigation">
             <nav onClick={toggleHeader}>
-              <li>
-                <Link style={stylesnav} activeStyle={activeStyle} to="/">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link style={stylesnav} activeStyle={activeStyle} to="/work">
-                  Work
-                </Link>
-              </li>
-              <li>
-                <Link style={stylesnav} activeStyle={activeStyle} to="/blog">
-                  Blog
-                </Link>
-              </li>
+              <Link style={stylesnav} activeStyle={activeStyle} to="/home">
+                Home
+              </Link>
+
+              <Link style={stylesnav} activeStyle={activeStyle} to="/work">
+                Work
+              </Link>
+
+              <Link style={stylesnav} activeStyle={activeStyle} to="/blog">
+                Blog
+              </Link>
             </nav>
           </div>
         </header>
@@ -60,7 +73,7 @@ const App = () => {
             <Route path="/blog">
               <Blog />
             </Route>
-            <Route path="/">
+            <Route path="/home">
               <LandingPage />
             </Route>
           </Switch>

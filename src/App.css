@@ -8,7 +8,7 @@
 }
 
 .App .main-container {
-  margin-left: 100px;
+  margin-left: 120px;
   flex: 1;
 }
 
@@ -34,6 +34,7 @@ body {
   background-color: var(--bg-color);
   color: var(--font-color);
   overflow-x: hidden;
+  height: 100%;
 }
 
 header {
@@ -44,24 +45,21 @@ header {
   flex: 1;
   border-right: solid 1px;
   height: 100vh;
-  padding: 10px;
   justify-content: flex-end;
+  min-width: 90px;
 }
 
-nav li {
-  /* border: solid 1px; */
-  justify-content: center;
-  list-style: none;
-  padding: 10px;
-  text-decoration: none;
-  color: var(--font-color);
+nav {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
 }
 
 .navigation {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .theme-switch-wrapper {
@@ -123,11 +121,19 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 600px) {
+  /* 100vh is not working properly in mobile */
+  .App {
+    height: 100%;
+    overflow: hidden;
+  }
+
   .App .main-container {
     margin-left: 0;
     padding: 10px;
-    position: relative;
+    height: 90vh;
+    margin-bottom: 0px;
   }
+
   header {
     display: flex;
     flex: none;
@@ -137,9 +143,7 @@ input:checked + .slider:before {
     width: 100vw;
     bottom: 0px;
     height: 100vh;
-    /* margin-bottom: -100vh; */
     max-height: 50%;
-    border: solid 0px;
     justify-content: center;
     transition: all 1s ease-in-out;
     z-index: 10;
@@ -147,6 +151,9 @@ input:checked + .slider:before {
     -webkit-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
     -moz-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
     box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
+  }
+  nav {
+    min-width: 100vw;
   }
   .App .menu-button {
     display: flex;
@@ -162,8 +169,12 @@ input:checked + .slider:before {
     border: none;
     background-color: var(--font-color);
     color: var(--bg-color);
-    z-index: 10;
+    z-index: 12;
     font-size: medium;
+  }
+  .App .size-large {
+    color: var(--bg-color);
+    font-size: x-large;
   }
   .show-menu {
     top: 80%;
