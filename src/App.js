@@ -51,15 +51,25 @@ const App = () => {
         <header style={showMenu ? { top: "50%" } : {}}>
           <div className="navigation">
             <nav onClick={toggleHeader}>
-              <Link style={stylesnav} activeStyle={activeStyle} to="/home">
+              <Link style={stylesnav} exact activeStyle={activeStyle} to="/">
                 Home
               </Link>
 
-              <Link style={stylesnav} activeStyle={activeStyle} to="/work">
+              <Link
+                style={stylesnav}
+                exact
+                activeStyle={activeStyle}
+                to="/work"
+              >
                 Work
               </Link>
 
-              <Link style={stylesnav} activeStyle={activeStyle} to="/blog">
+              <Link
+                style={stylesnav}
+                exact
+                activeStyle={activeStyle}
+                to="/blog"
+              >
                 Blog
               </Link>
             </nav>
@@ -73,7 +83,7 @@ const App = () => {
             <Route path="/blog">
               <Blog />
             </Route>
-            <Route path="/home">
+            <Route path="/">
               <LandingPage />
             </Route>
           </Switch>
