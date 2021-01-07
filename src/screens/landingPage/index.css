@@ -11,17 +11,19 @@
   position: absolute;
   bottom: 0;
   color: var(--font-color);
-  -webkit-text-fill-color: var(--bg-color);
   -webkit-text-stroke-width: 5px;
-  -webkit-text-stroke-color: var(--font-color);
   text-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
 }
 
 .logo-image {
   position: absolute;
-  height: 100vh;
-  width: 100vw;
-  opacity: 0.3;
+  right: 0;
+  top: 10%;
+  min-height: 400;
+  min-width: 600;
+  height: 60vh;
+  width: 50vw;
+  opacity: 1;
 }
 
 .itsme {
@@ -29,6 +31,7 @@
   right: 0;
   padding: 10px 20px;
   border-bottom: solid 3px;
+  font-weight: 800;
 }
 
 .ex-large {
@@ -59,11 +62,17 @@
   .landing-screen {
     font-size: calc(20px + (60 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
+  .logo-image {
+    position: absolute;
+    left: 10%;
+    height: 60vh;
+    width: 80vw;
+    opacity: 1;
+  }
   .landing-screen h2 {
     font-size: calc(32px + (60 - 14) * ((100vw - 300px) / (1600 - 300)));
-    -webkit-text-fill-color: var(--bg-color);
+    color: var(--font-color);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--font-color);
     text-shadow: 0px 9px 15px -9px rgba(212, 211, 232, 1);
   }
 }

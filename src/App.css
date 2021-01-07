@@ -13,21 +13,13 @@
 }
 
 :root {
-  --primary-color: #9a97f3;
-  --secondary-color: #818cab;
-  --font-color: #e1e1ff;
-  --bg-color: #161625;
-  --heading-color: #818cab;
-  --bg-skill: #e1e1ff;
-}
-
-[data-theme="dark"] {
-  --primary-color: #9a97f3;
-  --secondary-color: #818cab;
-  --font-color: #e1e1ff;
-  --bg-color: #161625;
-  --heading-color: #818cab;
-  --bg-skill: #e1e1ff;
+  --primary-color: #3b5998;
+  --secondary-color: #8b9dc3;
+  --font-color: #3b5998;
+  --bg-color: #f7f7f7;
+  --heading-color: #3b5998;
+  --bg-skill: #3b5998;
+  --tertiary-bg: #dfe3ee;
 }
 
 body {
@@ -145,12 +137,9 @@ input:checked + .slider:before {
     height: 100vh;
     max-height: 50%;
     justify-content: center;
-    transition: all 1s ease-in-out;
+    transition: all 0.6s ease-in-out;
     z-index: 10;
     background-color: var(--bg-color);
-    -webkit-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
-    -moz-box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
-    box-shadow: -1px -7px 43px 6px rgba(206, 209, 219, 1);
   }
   nav {
     min-width: 100vw;

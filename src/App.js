@@ -14,7 +14,7 @@ import { useWindowSize } from "./screens/utils/hooks/useWindowSize";
 const stylesnav = {
   display: "flex",
   textDecoration: "none",
-  color: "#e1e1ff",
+  color: "#3b5998",
   fontWeight: 600,
   // width: "100px",
   width: "100%",
@@ -24,7 +24,8 @@ const stylesnav = {
 };
 
 const activeStyle = {
-  background: "rgba(225, 225, 255, 0.1)",
+  backgroundColor: "#3b5998",
+  color: " #f7f7f7",
 };
 
 const App = () => {
