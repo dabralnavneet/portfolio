@@ -24,6 +24,19 @@
   height: 60vh;
   width: 50vw;
   opacity: 1;
+  animation: logo-spin 3s infinite;
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .itsme {

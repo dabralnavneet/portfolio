@@ -11,11 +11,11 @@ const Work = () => {
         <div className="work-item">
           <div className="work-done jio1">
             worked on latest technologoies like mobx-state-tree ,React native
-            web, typescript and storybook. developed crossplatform apps and
-            used across android, ios and web
+            web, typescript and storybook. developed crossplatform apps and used
+            across android, ios and web
           </div>
           <span>
-            <h3 className="company">Jio</h3>
+            <div className="company"></div>
             <h5> 2019 - {new Date().getFullYear()}</h5>
           </span>
           <div className="work-done jio2">

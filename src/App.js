@@ -14,6 +14,7 @@ import { useWindowSize } from "./screens/utils/hooks/useWindowSize";
 const stylesnav = {
   display: "flex",
   textDecoration: "none",
+  flexDirection: "column",
   color: "#3b5998",
   fontWeight: 600,
   // width: "100px",
@@ -55,7 +56,6 @@ const App = () => {
               <Link style={stylesnav} exact activeStyle={activeStyle} to="/">
                 Home
               </Link>
-
               <Link
                 style={stylesnav}
                 exact

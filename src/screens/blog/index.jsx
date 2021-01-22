@@ -1,15 +1,11 @@
 import React from "react";
 import "./index.css";
 
-const categories = ["HTML", "CSS", "JavaScript", "React", "React-native"];
+const categories = ["working on it"];
 
 const Tabs = (props) => {
   return <div className="tabs">{props.name}</div>;
 };
-
-// const Post = (props) => {
-//   return <div>{props.name}</div>;
-// };
 
 const Blog = () => {
   const a = categories.map((item) => <Tabs name={item} isSelected="false" />);
