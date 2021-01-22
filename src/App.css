@@ -162,7 +162,7 @@ input:checked + .slider:before {
     font-size: medium;
   }
   .App .size-large {
-    color: var(--bg-color);
+    /* color: var(--bg-color); */
     font-size: x-large;
   }
   .show-menu {
