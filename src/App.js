@@ -41,11 +41,19 @@ const App = () => {
   return (
     <div className="App">
       {showMenu ? (
-        <button className="menu-button size-large" onClick={toggleHeader}>
+        <button
+          className="menu-button size-large"
+          style={{ color: "white" }}
+          onClick={toggleHeader}
+        >
           &#10005;
         </button>
       ) : (
-        <button className="menu-button" onClick={toggleHeader}>
+        <button
+          className="menu-button"
+          style={{ color: "white" }}
+          onClick={toggleHeader}
+        >
           &#9776;
         </button>
       )}
