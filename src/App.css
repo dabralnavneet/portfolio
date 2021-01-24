@@ -157,12 +157,12 @@ input:checked + .slider:before {
     outline: none;
     border: none;
     background-color: var(--font-color);
-    color: var(--bg-color);
+    color: white;
     z-index: 12;
-    font-size: medium;
+    font-size: large;
   }
   .App .size-large {
-    color: var(--bg-color);
+    color: white;
     font-size: x-large;
   }
   .show-menu {
