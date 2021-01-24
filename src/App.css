@@ -156,15 +156,16 @@ input:checked + .slider:before {
     right: 16px;
     outline: none;
     border: none;
-    background-color: var(--font-color);
-    color: white;
+    border-color: black;
+    color: black;
     z-index: 12;
     font-size: large;
   }
   .App .size-large {
-    color: white;
+    color: black;
     font-size: x-large;
   }
+
   .show-menu {
     top: 80%;
   }
