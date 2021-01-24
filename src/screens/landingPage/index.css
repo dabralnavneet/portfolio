@@ -4,7 +4,7 @@
   animation: logo-spin 4s infinite;
 }
 .landing-screen h2 {
-  font-size: calc(70px + (60 - 14) * ((100vw - 200px) / (1600 - 300)));
+  font-size: calc(50px + (60 - 14) * ((100vw - 200px) / (1600 - 300)));
 }
 
 .logo-name {

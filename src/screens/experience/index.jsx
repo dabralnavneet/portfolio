@@ -19,10 +19,10 @@ const Work = () => {
             <h5> 2019 - {new Date().getFullYear()}</h5>
           </span>
           <div className="work-done jio2">
-            Delivered high quality product on time, In dynamic work culture.
-            used yarn workspaces for maintaining and code sharing between
-            projects, worked on azure for building CI/CD pipelines for different
-            testing environments
+            Delivered high quality product , In dynamic work culture. used yarn
+            workspaces for maintaining and code sharing between projects, worked
+            on azure for building CI/CD pipelines for different testing
+            environments
           </div>
         </div>
       </div>
