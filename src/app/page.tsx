@@ -1,8 +1,10 @@
 import { Boxes } from './components/background-boxes';
 import { cn } from '@/util/cn';
 import Image from 'next/image';
-import { IconBrandLinkedin, IconBrandX } from '@tabler/icons-react';
+import { IconBrandLinkedin, IconBrandX, IconTools } from '@tabler/icons-react';
 import Link from 'next/link';
+import Container from './components/container';
+import { Tech } from './components/tech';
 
 export default function Home() {
   // Get the current date
@@ -29,8 +31,8 @@ export default function Home() {
   const months = differenceInMonths % 12;
 
   return (
-    <main className="h-screen relative">
-      <div className="relative h-full w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+    <main className="relative flex flex-col items-center bg-slate-900">
+      <div className="relative h-screen w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
         <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes />
         <Image
@@ -66,6 +68,12 @@ export default function Home() {
           </Link>
         </p>
       </div>
+      <Container>
+        <div className="flex flex-col w-full font-mono text-4xl items-center">
+          <IconTools className="m-2" size={28} /> My Toolkit
+          <Tech />
+        </div>
+      </Container>
     </main>
   );
 }
