@@ -35,13 +35,22 @@ export default function Home() {
       <div className="relative h-screen w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
         <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes />
-        <Image
-          src="/images/user1.jpeg"
-          width={200}
-          height={200}
-          alt="user"
-          className="z-20 rounded-full mb-6"
-        />
+        <>
+          <Image
+            src="/images/user1.jpeg"
+            width={200}
+            height={200}
+            alt="user"
+            className="rounded-full z-20 mb-6 hidden sm:flex"
+          />
+          <Image
+            src="/images/user1.jpeg"
+            width={100}
+            height={100}
+            alt="user"
+            className="rounded-full z-20 mb-6 sm:hidden flex"
+          />
+        </>
         <h1
           className={cn(
             'md:text-6xl font-mono text-xl text-white relative z-20'
@@ -69,8 +78,9 @@ export default function Home() {
         </p>
       </div>
       <Container>
-        <div className="flex flex-col w-full font-mono text-4xl items-center">
-          <IconTools className="m-2" size={28} /> My Toolkit
+        <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
+          <IconTools className="m-2" size={28} />
+          <p className='my-2'>My Toolkit</p>
           <Tech />
         </div>
       </Container>
