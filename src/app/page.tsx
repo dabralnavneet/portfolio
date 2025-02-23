@@ -10,14 +10,13 @@ export default function Home() {
   // Get the current date
   const currentDate = new Date();
 
-  // Create a Date object for January 1, 2019
+  // Create a Date object for July 1, 2019
   const date2019 = new Date('2019-07-01');
 
   // Calculate the difference in months
   let differenceInMonths =
-    (currentDate.getFullYear() - date2019.getFullYear()) * 12;
-  differenceInMonths -= date2019.getMonth();
-  differenceInMonths += currentDate.getMonth();
+    (currentDate.getFullYear() - date2019.getFullYear()) * 12 +
+    (currentDate.getMonth() - date2019.getMonth());
 
   // Adjust if the current date's day is before the date2019's day
   if (currentDate.getDate() < date2019.getDate()) {
@@ -80,7 +79,7 @@ export default function Home() {
       <Container>
         <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
           <IconTools className="m-2" size={28} />
-          <p className='my-2'>My Toolkit</p>
+          <p className="my-2">My Toolkit</p>
           <Tech />
         </div>
       </Container>
