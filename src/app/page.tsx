@@ -1,10 +1,17 @@
 import { Boxes } from './components/background-boxes';
 import { cn } from '@/util/cn';
 import Image from 'next/image';
-import { IconBrandLinkedin, IconBrandX, IconTools } from '@tabler/icons-react';
+import {
+  IconBrandLinkedin,
+  IconBrandX,
+  IconTools,
+  IconBriefcase,
+  IconMail,
+} from '@tabler/icons-react';
 import Link from 'next/link';
 import Container from './components/container';
 import { Tech } from './components/tech';
+import WorkExperience from './components/experience';
 
 export default function Home() {
   // Get the current date
@@ -61,8 +68,7 @@ export default function Home() {
           Learner | Engineer | FrontEnd
         </p>
         <p className="text-center font-mono mt-2 text-neutral-300 relative z-20">
-          Survived {years} years and {months} months of software building
-          madness - still sane (mostly).
+          {years} years, {months} months of accumulating tech debt
         </p>
         <p className="text-center flex flex-row gap-4 font-mono mt-6 text-neutral-300 relative z-20">
           <Link
@@ -78,10 +84,21 @@ export default function Home() {
       </div>
       <Container>
         <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
-          <IconTools className="m-2" size={28} />
+          <IconTools />
           <p className="my-2">My Toolkit</p>
           <Tech />
+          <IconBriefcase className="mt-16 mb-2" size={28} />
+          <p className="mb-10">Work Experience</p>
+          <WorkExperience />
         </div>
+
+        <a
+          href="mailto:dabralnavneet@gmail.com"
+          className="fixed bottom-6 z-50 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-110 flex items-center justify-center"
+          title="Hire Me"
+        >
+          <IconMail className="w-6 h-6" />
+        </a>
       </Container>
     </main>
   );
