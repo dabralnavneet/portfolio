@@ -19,6 +19,7 @@ import {
   IconBrandGithub,
   IconBrandStorybook,
 } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 
 const tech = [
   { name: 'Html5', Icon: IconBrandHtml5 },
@@ -39,7 +40,13 @@ const tech = [
 ];
 
 export const Tech = () => {
-  const isMobile = window?.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window?.innerWidth < 768);
+    }
+  }, []);
 
   const getDivAnimationProps = (index: number) =>
     isMobile
