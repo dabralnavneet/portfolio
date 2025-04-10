@@ -1,13 +1,6 @@
-import { Boxes } from './components/background-boxes';
 import { cn } from '@/util/cn';
 import Image from 'next/image';
-import {
-  IconBrandLinkedin,
-  IconBrandX,
-  IconTools,
-  IconBriefcase,
-  IconMail,
-} from '@tabler/icons-react';
+import { IconBrandLinkedin, IconBrandX, IconMail } from '@tabler/icons-react';
 import Link from 'next/link';
 import Container from './components/container';
 import { Tech } from './components/tech';
@@ -37,69 +30,66 @@ export default function Home() {
   const months = differenceInMonths % 12;
 
   return (
-    <main className="relative flex flex-col items-center bg-slate-900">
-      <div className="relative h-screen w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
-        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-        <Boxes />
+    <main className="relative flex flex-col items-center ">
+      <div className="relative w-full overflow-hidden flex flex-col items-center justify-center">
         <>
           <Image
-            src="/images/user1.jpeg"
-            width={200}
-            height={200}
+            src="/images/user3.png"
+            width={400}
+            height={400}
             alt="user"
-            className="rounded-full z-20 mb-6 hidden sm:flex"
+            className="rounded-full mb-6 hidden sm:flex animate-popIn"
           />
           <Image
-            src="/images/user1.jpeg"
-            width={100}
-            height={100}
+            src="/images/user3.png"
+            width={260}
+            height={300}
             alt="user"
-            className="rounded-full z-20 mb-6 sm:hidden flex"
+            className="rounded-full mb-6 sm:hidden flex animate-popIn"
           />
         </>
-        <h1
-          className={cn(
-            'md:text-6xl font-mono text-xl text-white relative z-20'
-          )}
-        >
+        <h1 className={cn('md:text-6xl font-mono text-xl relative')}>
           Navneet Dabral
         </h1>
-        <p className="text-center font-mono mt-2 text-neutral-300 relative z-20">
-          Learner | Engineer | FrontEnd
+        <p className="text-center font-mono mt-2 relative">
+          Learner | Engineer | UI/UX
         </p>
-        <p className="text-center font-mono mt-2 text-neutral-300 relative z-20">
+        <p className="text-center font-mono mt-2 relative">
           {years} years, {months} months of accumulating tech debt
-        </p>
-        <p className="text-center flex flex-row gap-4 font-mono mt-6 text-neutral-300 relative z-20">
-          <Link
-            target="__blank"
-            href="https://linkedin.com/in/navneet-dabral-859707117"
-          >
-            <IconBrandLinkedin size="36" className="cursor-pointer" />
-          </Link>
-          <Link target="__blank" href="https://twitter.com/medabral">
-            <IconBrandX size="36" className="cursor-pointer" />
-          </Link>
         </p>
       </div>
       <Container>
         <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
-          <IconTools />
-          <p className="my-2">My Toolkit</p>
+          <p className="sm:mt-12 mt-12">My Toolkit</p>
           <Tech />
-          <IconBriefcase className="mt-16 mb-2" size={28} />
-          <p className="mb-10">Work Experience</p>
+
+          <p className="sm:mt-24 mt-12 sm:mb-12 mb-4">Work Experience</p>
           <WorkExperience />
         </div>
-
-        <a
-          href="mailto:dabralnavneet@gmail.com"
-          className="fixed bottom-6 z-50 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-110 flex items-center justify-center"
-          title="Hire Me"
-        >
-          <IconMail className="w-6 h-6" />
-        </a>
       </Container>
+      <footer className="w-full mt-16 px-6 py-10 bg-[#f4e2c580] backdrop-blur-md border-t border-[#E9D5B4]">
+        <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
+          <div className="flex space-x-4">
+            <p className="text-center flex flex-row gap-4 font-mono mt-6  relative ">
+              <Link
+                target="__blank"
+                href="https://linkedin.com/in/navneet-dabral-859707117"
+              >
+                <IconBrandLinkedin size="36" className="cursor-pointer" />
+              </Link>
+              <Link target="__blank" href="https://twitter.com/medabral">
+                <IconBrandX size="36" className="cursor-pointer" />
+              </Link>
+              <a href="mailto:dabralnavneet@gmail.com" title="Hire Me">
+                <IconMail size="36" className="cursor-pointer" />
+              </a>
+            </p>
+          </div>
+          <p className="text-[#3C2C26] text-sm">
+            © {new Date().getFullYear()} Navneet Dabral
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }

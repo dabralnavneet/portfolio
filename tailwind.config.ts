@@ -1,7 +1,5 @@
 import type { Config } from 'tailwindcss';
 
-const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
 const {
   default: flattenColorPalette,
 } = require('tailwindcss/lib/util/flattenColorPalette');
@@ -12,16 +10,26 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
+  plugins: [addVariablesForColors],
+   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        theme: {
+          background: '#F4E2C5', 
+          text: '#3C2C26',       
+        },
+      },
+       keyframes: {
+        popIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95) translateY(20px)' },
+          '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+        },
+      },
+      animation: {
+        popIn: 'popIn 2s ease-out forwards',
       },
     },
   },
-  plugins: [addVariablesForColors],
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

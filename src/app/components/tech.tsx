@@ -42,12 +42,12 @@ export const Tech = () => {
       {tech.map(({ Icon, name }, index) => (
         <div
           key={index}
-          className="flex flex-col justify-center items-center py-10  bg-white border border-gray-200 rounded-lg shadow-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          className="flex flex-col justify-center items-center py-10 px-4 rounded-2xl shadow-[0_4px_20px_rgba(44,39,35,0.1)] bg-[#F4E2C5] text-[#3C2C26] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_24px_rgba(44,39,35,0.15)]"
         >
           <div>
-            <Icon className="opacity-50 h-12 w-12 sm:h-16 sm:w-16 md:h-24 md:w-24" />
+            <Icon className="opacity-80 h-12 w-12 sm:h-16 sm:w-16 md:h-12 md:w-12" />
           </div>
-          <p className="font-light text-xs mt-2 opacity-50">{name}</p>
+          <p className="font-medium text-sm mt-4 opacity-80">{name}</p>
         </div>
       ))}
     </div>
