@@ -30,7 +30,10 @@ export default function Home() {
   const months = differenceInMonths % 12;
 
   return (
-    <main className="relative flex flex-col items-center ">
+    <main className="relative flex flex-col items-center overflow-hidden">
+      {/* Animated Background Blobs */}
+      <div className="absolute -top-10 -left-10 w-[100%] h-[20rem] bg-[#FFD3A5] rounded-full mix-blend-multiply filter blur-3xl opacity-70 z-0"></div>
+
       <div className="relative w-full overflow-hidden flex flex-col items-center justify-center">
         <>
           <Image
@@ -38,26 +41,31 @@ export default function Home() {
             width={400}
             height={400}
             alt="user"
-            className="rounded-full mb-6 hidden sm:flex animate-popIn"
+            className="rounded-full mb-6 hidden sm:flex animate-popIn z-10"
           />
           <Image
             src="/images/user3.png"
             width={260}
             height={300}
             alt="user"
-            className="rounded-full mb-6 sm:hidden flex animate-popIn"
+            className="rounded-full mb-6 sm:hidden flex animate-popIn z-10"
           />
         </>
-        <h1 className={cn('md:text-6xl font-mono text-xl relative')}>
+        <h1
+          className={cn(
+            'md:text-6xl font-mono font-bold text-xl relative z-10'
+          )}
+        >
           Navneet Dabral
         </h1>
-        <p className="text-center font-mono mt-2 relative">
+        <p className="text-center font-mono mt-2 relative z-10">
           Learner | Engineer | UI/UX
         </p>
-        <p className="text-center font-mono mt-2 relative">
+        <p className="text-center font-mono mt-2 relative z-10">
           {years} years, {months} months of accumulating tech debt
         </p>
       </div>
+
       <Container>
         <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
           <p className="sm:mt-12 mt-12">My Toolkit</p>
