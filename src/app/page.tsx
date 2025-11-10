@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/util/cn';
 import Image from 'next/image';
 import { IconBrandLinkedin, IconBrandX, IconMail } from '@tabler/icons-react';
@@ -80,12 +82,12 @@ export default function Home() {
           <div className="flex space-x-4">
             <p className="text-center flex flex-row gap-4 font-mono mt-6  relative ">
               <Link
-                target="__blank"
+                target="_blank"
                 href="https://linkedin.com/in/navneet-dabral-859707117"
               >
                 <IconBrandLinkedin size="36" className="cursor-pointer" />
               </Link>
-              <Link target="__blank" href="https://twitter.com/medabral">
+              <Link target="_blank" href="https://twitter.com/medabral">
                 <IconBrandX size="36" className="cursor-pointer" />
               </Link>
               <a href="mailto:dabralnavneet@gmail.com" title="Hire Me">
