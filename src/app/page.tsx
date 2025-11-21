@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Container from './components/container';
 import { Tech } from './components/tech';
 import WorkExperience from './components/experience';
+import Navigation from './components/navigation';
 
 export default function Home() {
   // Get the current date
@@ -33,10 +34,13 @@ export default function Home() {
 
   return (
     <main className="relative flex flex-col items-center overflow-hidden">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Animated Background Blobs */}
       <div className="absolute -top-10 -left-10 w-[100%] h-[20rem] bg-[#FFD3A5] rounded-full mix-blend-multiply filter blur-3xl opacity-70 z-0"></div>
 
-      <div className="relative w-full overflow-hidden flex flex-col items-center justify-center">
+      <section id="home" className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-24 sm:pt-32">
         <>
           <Image
             src="/images/user3.png"
@@ -66,18 +70,22 @@ export default function Home() {
         <p className="text-center font-mono mt-2 relative z-10">
           {years} years, {months} months of accumulating tech debt
         </p>
-      </div>
+      </section>
 
       <Container>
         <div className="flex flex-col w-full font-mono text-xl md:text-4xl items-center">
-          <p className="sm:mt-12 mt-12">My Toolkit</p>
-          <Tech />
+          <section id="toolkit" className="w-full flex flex-col items-center" style={{ scrollMarginTop: '100px' }}>
+            <p className="sm:mt-12 mt-12">My Toolkit</p>
+            <Tech />
+          </section>
 
-          <p className="sm:mt-24 mt-12 sm:mb-12 mb-4">Work Experience</p>
-          <WorkExperience />
+          <section id="experience" className="w-full flex flex-col items-center" style={{ scrollMarginTop: '100px' }}>
+            <p className="sm:mt-24 mt-12 sm:mb-12 mb-4">Work Experience</p>
+            <WorkExperience />
+          </section>
         </div>
       </Container>
-      <footer className="w-full mt-16 px-6 py-10 bg-[#f4e2c580] backdrop-blur-md border-t border-[#E9D5B4]">
+      <footer id="contact" className="w-full mt-16 px-6 py-10 bg-[#f4e2c580] backdrop-blur-md border-t border-[#E9D5B4]" style={{ scrollMarginTop: '100px' }}>
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
           <div className="flex space-x-4">
             <p className="text-center flex flex-row gap-4 font-mono mt-6  relative ">
