@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { IconHome, IconBriefcase, IconTool, IconMail } from '@tabler/icons-react';
 
 const navItems = [
@@ -12,47 +13,53 @@ const navItems = [
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('home');
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Hide nav on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
+      // Check if we are at the bottom of the page (for Contact)
+      const isAtBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+      
+      if (isAtBottom) {
+        setActiveSection('contact');
+        return;
       }
-      setLastScrollY(currentScrollY);
 
       // Update active section based on scroll position
       const sections = navItems.map(item => item.id);
       let foundActive = false;
 
+      // Create an array of elements with their distances from the vertical center of the viewport
+      const viewportCenter = window.innerHeight / 3; // Bias towards the top third of the screen
+
+      let closestSection = 'home';
+      let minDistance = Infinity;
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if section is in viewport (within 200px from top)
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            setActiveSection(section);
-            foundActive = true;
-            break;
+          
+          // Distance from the top of the element to our trigger line
+          const distance = Math.abs(rect.top - viewportCenter);
+          
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
           }
         }
       }
 
-      // If at the very top, set home as active
-      if (!foundActive && currentScrollY < 100) {
-        setActiveSection('home');
-      }
+      setActiveSection(closestSection);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -63,10 +70,8 @@ export default function Navigation() {
           behavior: 'smooth',
         });
       } else {
-        // Calculate the exact position with offset for fixed nav
-        const yOffset = -90; // Negative offset to account for fixed nav
+        const yOffset = -50; 
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
         window.scrollTo({
           top: y,
           behavior: 'smooth',
@@ -76,57 +81,78 @@ export default function Navigation() {
   };
 
   return (
-    <nav
-      className={`fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-20 opacity-0'
-      }`}
-    >
-      <div className="bg-[#f4e2c5cc] backdrop-blur-xl border border-[#E9D5B4] rounded-full px-3 sm:px-6 py-2 sm:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] transition-all duration-300">
-        <ul className="flex items-center gap-1 sm:gap-2">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.id;
+    <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+      <motion.div 
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.5 }}
+        className="flex items-center gap-2 px-3 py-3 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+      >
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeSection === item.id;
+          const isHovered = hoveredSection === item.id;
 
-            return (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`group relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full transition-all duration-300 ${
-                    isActive
-                      ? 'bg-[#3C2C26] text-[#F4E2C5] shadow-lg'
-                      : 'text-[#3C2C26] hover:bg-[#E9D5B4]'
-                  }`}
-                  aria-label={`Navigate to ${item.label}`}
-                >
-                  <Icon
-                    size={18}
-                    className={`transition-transform duration-300 ${
-                      isActive ? 'scale-110' : 'group-hover:scale-110'
-                    }`}
-                  />
-                  <span
-                    className={`text-sm font-medium transition-all duration-300 hidden sm:block ${
-                      isActive
-                        ? 'opacity-100 max-w-[100px]'
-                        : 'max-w-0 opacity-0 group-hover:max-w-[100px] group-hover:opacity-100'
-                    } overflow-hidden whitespace-nowrap`}
-                  >
-                    {item.label}
-                  </span>
+          return (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              onMouseEnter={() => setHoveredSection(item.id)}
+              onMouseLeave={() => setHoveredSection(null)}
+              className="relative p-3 sm:p-4 rounded-xl flex items-center justify-center group flex-col focus:outline-none"
+              aria-label={`Navigate to ${item.label}`}
+            >
+              {/* Active Pill Animation Background */}
+              {isActive && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-white/10 border border-white/10 rounded-xl"
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                />
+              )}
 
-                  {/* Futuristic glow effect */}
-                  {isActive && (
-                    <span className="absolute inset-0 rounded-full bg-[#3C2C26] animate-pulse opacity-20"></span>
-                  )}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+              {/* Hover Glow Effect */}
+              {isHovered && !isActive && (
+                <motion.div
+                  layoutId="hover-pill"
+                  className="absolute inset-0 bg-white/5 border border-white/5 rounded-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
 
-      {/* Futuristic underline indicator */}
-      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-[#3C2C26] to-transparent opacity-30"></div>
+              {/* Icon */}
+              <Icon
+                size={22}
+                className={`relative z-10 transition-all duration-300 ${
+                  isActive 
+                    ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] scale-110' 
+                    : 'text-zinc-500 group-hover:text-zinc-200 group-hover:scale-105'
+                }`}
+                stroke={isActive ? 2 : 1.5}
+              />
+
+              {/* Tooltip on Hover */}
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                animate={{ 
+                  opacity: isHovered ? 1 : 0, 
+                  y: isHovered ? -12 : 10,
+                  scale: isHovered ? 1 : 0.9
+                }}
+                transition={{ duration: 0.2 }}
+                className="absolute -top-10 px-3 py-1.5 bg-zinc-900 border border-white/10 rounded-lg text-xs font-medium text-zinc-300 whitespace-nowrap pointer-events-none shadow-xl"
+              >
+                {item.label}
+              </motion.div>
+              
+              {/* Active Dot Indicator */}
+              <div className={`absolute bottom-1 w-1 h-1 rounded-full transition-all duration-300 ${isActive ? 'bg-cyan-400 opacity-100' : 'bg-transparent opacity-0'}`} />
+            </button>
+          );
+        })}
+      </motion.div>
     </nav>
   );
 }

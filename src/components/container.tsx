@@ -6,7 +6,7 @@ const Container = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="flex w-screen max-w-screen-2xl p-4 sm:p-12">{children}</div>
+    <div className="flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">{children}</div>
   );
 };
 
