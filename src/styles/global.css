@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-background: #F4E2C5;
+  --color-theme-text: #3C2C26;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-popIn {
+    animation: popIn 2s ease-out forwards;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-theme-background);
+  color: var(--color-theme-text);
+}
